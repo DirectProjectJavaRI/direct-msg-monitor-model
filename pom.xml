@@ -28,7 +28,7 @@
    <parent>
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-dependencies</artifactId>
-	   <version>2.0.5.RELEASE</version>
+	   <version>2.1.0.RC1</version>
    </parent>	   
 	<scm>
 		<url>scm:git:https://github.com/DirectProject/direct-msg-monitor-model.git</url>
@@ -39,7 +39,15 @@
         <name>New BSD License</name>
         <url>http://nhindirect.org/BSDLicense</url>
      </license>
-  </licenses>      
+  </licenses>    
+	 <!-- Temp repository for Spring Boot Milestone -->
+	 <repositories>
+       <repository>
+           <id>spring-milestone</id>
+           <name>Spring Milestone Releases</name>
+           <url>https://repo.spring.io/milestone/</url>
+       </repository>
+    </repositories>        
   <dependencies>       
 	    <dependency>
 			<groupId>org.nhind</groupId>
