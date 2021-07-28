@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>direct-msg-monitor-model</artifactId>    
     <name>Direct Project Message Monitor Data Model Objects</name>
-    <version>6.0.1-SNAPSHOT</version>
+    <version>8.0.0-SNAPSHOT</version>
     <description>Direct Project Message Monitor Data Model Objects</description>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/DirectProjectJavaRI/direct-msg-monitor-model</url> 
@@ -23,38 +23,48 @@
         <url>http://nhindirect.org</url>
     </organization>
    <prerequisites>
-        <maven>3.0.0</maven>
+        <maven>3.5.0</maven>
    </prerequisites>   
    <parent>
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-dependencies</artifactId>
-	   <version>2.1.3.RELEASE</version>
-   </parent>	   
-	<scm>
-		<url>scm:git:https://github.com/DirectProjectJavaRI/direct-msg-monitor-model.git</url>
-		<connection>scm:git:https://github.com/DirectProjectJavaRI/direct-msg-monitor-model.git</connection>
-	</scm>
-  <licenses>
-     <license>
+	   <version>2.5.2</version>
+	   <relativePath />
+   </parent>		   
+   <scm>
+      <url>scm:git:https://github.com/DirectProjectJavaRI/direct-msg-monitor-model.git</url>
+      <connection>scm:git:https://github.com/DirectProjectJavaRI/direct-msg-monitor-model.git</connection>
+   </scm>
+   <licenses>
+      <license>
         <name>New BSD License</name>
         <url>http://nhindirect.org/BSDLicense</url>
-     </license>
-  </licenses>         
+      </license>
+   </licenses>  
+   <properties>
+      <javax-mail.version>1.6.2</javax-mail.version>
+      <dsn.version>1.6.7</dsn.version>
+      <commons-io.version>2.8.0</commons-io.version>      
+   </properties>          
   <dependencies>       
 	    <dependency>
 			<groupId>org.nhind</groupId>
 			<artifactId>direct-common</artifactId>
-			<version>6.0.1-SNAPSHOT</version>		    
+			<version>8.0.0-SNAPSHOT</version>		    
 	    </dependency>
 		<dependency>
-			<groupId>javax.mail</groupId>
-			<artifactId>mail</artifactId>
-			<version>1.4.3</version>		
-		</dependency>  
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency> 	    
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>${javax-mail.version}</version>
+		</dependency>	 
 		<dependency>
 			<groupId>com.sun.mail</groupId>
 			<artifactId>dsn</artifactId>
-			<version>1.4.3</version>
+			<version>${dsn.version}</version>
 		</dependency>		  	  		 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -63,34 +73,31 @@
 	    <dependency>
 	    	<groupId>commons-io</groupId>
 	    	<artifactId>commons-io</artifactId>
-	    	<version>2.6</version>
+	    	<version>${commons-io.version}</version>
 	    </dependency>	
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-annotations</artifactId>
 		</dependency>		    		 	                                  		                  
-	    <dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>  	   	    			   																																																																																												
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <scope>test</scope>
+		</dependency>  	    			   																																																																																												
   </dependencies>      
   <build>
   	<extensions>
 		<extension>
 			<groupId>org.apache.maven.wagon</groupId>
 			<artifactId>wagon-webdav-jackrabbit</artifactId>
-			<version>3.1.0</version>
 		</extension>
 		<extension>
 			<groupId>org.apache.maven.wagon</groupId>
 			<artifactId>wagon-ssh-external</artifactId>
-			<version>3.1.0</version>
 		</extension>
 		<extension>
 			<groupId>org.apache.maven.wagon</groupId>
 			<artifactId>wagon-ssh</artifactId>
-			<version>3.1.0</version>
 		</extension>		
    	</extensions>
     <resources>
@@ -119,6 +126,7 @@
 	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-jxr-plugin</artifactId>
+		<version>3.1.1</version>
 	</plugin> 	
 	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
@@ -151,32 +159,27 @@
           </execution>
         </executions>
       </plugin>        
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <configuration>
-               <archive>
-                  <index>true</index>
-               </archive>
-            </configuration>
-         </plugin>
-         <plugin>
-       <groupId>org.apache.maven.plugins</groupId>
-       <artifactId>maven-jar-plugin</artifactId>
-       <executions>
-         <execution>
-           <goals>
-             <goal>test-jar</goal>
-           </goals>
-         </execution>
-       </executions>
-     </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+          <configuration>
+             <archive>
+                <index>true</index>
+             </archive>
+          </configuration>       
+          <executions>
+            <execution>
+              <goals>
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+       </plugin> 
 	     <plugin>
 	      	<groupId>org.apache.maven.plugins</groupId> 
 	        <artifactId>maven-javadoc-plugin</artifactId>
-	        <version>2.9.1</version>
 	        <configuration>
-			    <additionalparam>-Xdoclint:none</additionalparam>
+			    <additionalJOption>-Xdoclint:none</additionalJOption>
 				<charset>UTF-8</charset>
 				<docencoding>UTF-8</docencoding>
 				<docfilessubdirs>true</docfilessubdirs>
@@ -211,6 +214,7 @@
                      </goals>
               </execution>
             </executions>
+            <version>3.0.1</version>
         </plugin>	    
          -->      			    
     </plugins>    
@@ -220,14 +224,12 @@
 	      <plugin>
 	           <groupId>org.apache.maven.plugins</groupId>
 	           <artifactId>maven-project-info-reports-plugin</artifactId>
-	           <version>2.9</version>
 	      </plugin>    
 	      <plugin>
 	      	<groupId>org.apache.maven.plugins</groupId> 
 	        <artifactId>maven-javadoc-plugin</artifactId>
-	        <version>2.9.1</version>
 	        <configuration>
-			  <additionalparam>-Xdoclint:none</additionalparam>
+			  <additionalJOption>-Xdoclint:none</additionalJOption>
 			  <charset>UTF-8</charset>
 			  <docencoding>UTF-8</docencoding>
 			  <docfilessubdirs>true</docfilessubdirs>
@@ -254,6 +256,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
+				<version>3.1.1</version>
 			</plugin>
 	        <plugin>
 	            <groupId>org.codehaus.mojo</groupId> 

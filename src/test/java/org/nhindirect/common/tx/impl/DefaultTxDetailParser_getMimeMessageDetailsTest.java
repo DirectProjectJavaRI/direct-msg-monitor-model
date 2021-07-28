@@ -1,14 +1,15 @@
 package org.nhindirect.common.tx.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
 
-import org.junit.Test;
 import org.nhindirect.common.mail.MDNStandard;
 import org.nhindirect.common.mail.MailStandard;
 import org.nhindirect.common.tx.TestUtils;

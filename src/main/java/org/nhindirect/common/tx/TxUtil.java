@@ -29,8 +29,6 @@ import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.ParseException;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nhindirect.common.mail.MDNStandard;
 import org.nhindirect.common.mail.SMIMEStandard;
 import org.nhindirect.common.mail.dsn.DSNStandard;
@@ -40,18 +38,17 @@ import org.nhindirect.common.tx.model.TxDetail;
 import org.nhindirect.common.tx.model.TxDetailType;
 import org.nhindirect.common.tx.model.TxMessageType;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 /**
  * Utility class for message monitoring
  * @author Greg Meyer
  * @since 1.1
  */
+@Slf4j
 public class TxUtil 
 {
-	@SuppressWarnings("deprecation")
-	private static final Log LOGGER = LogFactory.getFactory().getInstance(TxUtil.class);
-	
-
 	/**
 	 * Gets the message type based on the content type headers.
 	 * @param msg The message to extract the type from.
@@ -87,11 +84,11 @@ public class TxUtil
 		///CLOVER:OFF
 		catch (ParseException e)
 		{
-			LOGGER.warn("Failed to discern message type.", e);
+			log.warn("Failed to discern message type.", e);
 		}
 		catch (MessagingException e)
 		{
-			LOGGER.warn("Failed to discern message type.", e);
+			log.warn("Failed to discern message type.", e);
 		}	
 		return TxMessageType.UNKNOWN;
 		///CLOVER:ON

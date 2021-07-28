@@ -1,10 +1,11 @@
 package org.nhindirect.common.tx;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 import javax.mail.internet.MimeMessage;
 
-import org.junit.Test;
 import org.nhindirect.common.tx.model.TxMessageType;
 
 public class TxUtil_getMessageTypeTypeTest 
