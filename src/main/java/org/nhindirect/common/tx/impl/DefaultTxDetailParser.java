@@ -35,8 +35,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.nhindirect.common.mail.MDNStandard;
 import org.nhindirect.common.mail.MailStandard;
 import org.nhindirect.common.mail.MailUtil;
@@ -49,15 +47,14 @@ import org.nhindirect.common.tx.model.TxMessageType;
 
 import com.sun.mail.dsn.DeliveryStatus;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DefaultTxDetailParser implements TxDetailParser
-{
-	@SuppressWarnings("deprecation")
-	private static final Log LOGGER = LogFactory.getFactory().getInstance(DefaultTxDetailParser.class);
-	
+{	
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, TxDetail> getMessageDetails(InternetHeaders headers) 
 	{
@@ -78,7 +75,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		catch (MessagingException e)
 		{			
 
-			LOGGER.warn("Failed to translate headers to MimeMessage.", e);
+			log.warn("Failed to translate headers to MimeMessage.", e);
 
 		}
 		///CLOVER:ON
@@ -104,7 +101,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		catch (MessagingException e)
 		{			
 
-			LOGGER.warn("Failed to translate input stream into MimeMessage.", e);
+			log.warn("Failed to translate input stream into MimeMessage.", e);
 
 		}
 		///CLOVER:ON
@@ -158,7 +155,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			LOGGER.warn("Failed to retrieve message sender list.", e);
+			log.warn("Failed to retrieve message sender list.", e);
 		}
 		/// CLOVER:ON
 		
@@ -173,7 +170,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			LOGGER.warn("Failed to retrieve message sender", e);
+			log.warn("Failed to retrieve message sender", e);
 		}		
 		/// CLOVER:ON
 		
@@ -204,7 +201,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			LOGGER.warn("Failed to retrieve message recipient list.", e);
+			log.warn("Failed to retrieve message recipient list.", e);
 		}
 		/// CLOVER:ON
 		
@@ -253,7 +250,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 					// CLOVER:OFF
 					catch (Exception e)
 					{
-						LOGGER.warn("Failed to retrieve MDN headers from message.  Message may not be an MDN message.", e);
+						log.warn("Failed to retrieve MDN headers from message.  Message may not be an MDN message.", e);
 					}
 					// CLOVER:ON
 					break;
@@ -300,7 +297,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 					///CLOVER:OFF
 					catch (Exception e) 
 					{
-						LOGGER.warn("Could not get a requested field from the DSN message", e);
+						log.warn("Could not get a requested field from the DSN message", e);
 					}
 					///CLOVER:ON
 					break;
@@ -322,7 +319,6 @@ public class DefaultTxDetailParser implements TxDetailParser
 		return getHeadersAsString(msg);
 	}
 	
-	@SuppressWarnings("unchecked")
 	public static String getHeadersAsString(MimeMessage msg)
 	{
 		StringBuilder builder = new StringBuilder();
@@ -338,7 +334,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		{
 			// According to most SE runtimes, getAllHeaderLines will never thrown a MessagingException
 
-			LOGGER.warn("Failed to builder message summary.", e);
+			log.warn("Failed to builder message summary.", e);
 
 		}
 		///CLOVER:ON

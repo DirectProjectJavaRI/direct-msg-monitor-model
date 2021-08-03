@@ -2,6 +2,7 @@ package org.nhindirect.common.tx;
 
 import java.io.File;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,25 +17,19 @@ import org.nhindirect.common.tx.model.TxMessageType;
 
 public class TestUtils
 {
-	@SuppressWarnings("deprecation")
 	public static String readMessageFromFile(String fileName) throws Exception
 	{
-		return FileUtils.readFileToString(new File("./src/test/resources/messages/" + fileName));
-	
+		return FileUtils.readFileToString(new File("./src/test/resources/messages/" + fileName), StandardCharsets.UTF_8);
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static MimeMessage readMimeMessageFromFile(String fileName) throws Exception
-	{
-		InputStream str = IOUtils.toInputStream(readMessageFromFile(fileName));
-		
-		try
+	{	
+		try  (InputStream str = IOUtils.toInputStream(readMessageFromFile(fileName), StandardCharsets.UTF_8);)
 		{
 			return new MimeMessage(null, str);
 		}
 		finally
 		{
-			IOUtils.closeQuietly(str);
 		}
 	}	
 	

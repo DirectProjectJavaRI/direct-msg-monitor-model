@@ -1,8 +1,10 @@
 package org.nhindirect.common.tx.impl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.util.Locale;
@@ -12,7 +14,6 @@ import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MimeMessage;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
 import org.nhindirect.common.mail.MailStandard;
 import org.nhindirect.common.tx.TestUtils;
 import org.nhindirect.common.tx.model.TxDetail;
@@ -164,7 +165,7 @@ public class DefaultTxDetailParser_getMessageDetails_OptionalInputsTest
 		final Map<String, TxDetail> details = parser.getMessageDetails(msg);
 		
 		
-		assertNull("X-DIRECT-FINAL-DESTINATION-DELIVERY", details.get(TxDetailType.DISPOSITION_OPTIONS.getType()));
+		assertNull(details.get(TxDetailType.DISPOSITION_OPTIONS.getType()));
 
 	}	
 }
