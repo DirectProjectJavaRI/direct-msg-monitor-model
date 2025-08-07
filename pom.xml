@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>direct-msg-monitor-model</artifactId>    
     <name>Direct Project Message Monitor Data Model Objects</name>
-    <version>8.1.0</version>
+    <version>9.0.0-SNAPSHOT</version>
     <description>Direct Project Message Monitor Data Model Objects</description>
     <inceptionYear>2018</inceptionYear>
     <url>https://github.com/DirectProjectJavaRI/direct-msg-monitor-model</url> 
@@ -28,7 +28,7 @@
    <parent>
 	   <groupId>org.springframework.boot</groupId>
 	   <artifactId>spring-boot-dependencies</artifactId>
-	   <version>2.5.2</version>
+	   <version>3.5.0</version>
 	   <relativePath />
    </parent>		   
    <scm>
@@ -40,41 +40,21 @@
         <name>New BSD License</name>
         <url>http://nhindirect.org/BSDLicense</url>
       </license>
-   </licenses>  
-   <properties>
-      <javax-mail.version>1.6.2</javax-mail.version>
-      <dsn.version>1.6.7</dsn.version>
-      <commons-io.version>2.8.0</commons-io.version>      
-   </properties>          
+   </licenses>       
   <dependencies>       
 	    <dependency>
 			<groupId>org.nhind</groupId>
 			<artifactId>direct-common</artifactId>
-			<version>8.1.0</version>		    
+			<version>9.0.0-SNAPSHOT</version>		    
 	    </dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-		</dependency> 	    
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>javax.mail</artifactId>
-			<version>${javax-mail.version}</version>
-		</dependency>	 
-		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>dsn</artifactId>
-			<version>${dsn.version}</version>
-		</dependency>		  	  		 
+		</dependency> 	    	  	  		 
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>		
-	    <dependency>
-	    	<groupId>commons-io</groupId>
-	    	<artifactId>commons-io</artifactId>
-	    	<version>${commons-io.version}</version>
-	    </dependency>	
 		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-annotations</artifactId>
@@ -126,7 +106,6 @@
 	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
 		<artifactId>maven-jxr-plugin</artifactId>
-		<version>3.1.1</version>
 	</plugin> 	
 	<plugin>
 		<groupId>org.apache.maven.plugins</groupId>
@@ -144,8 +123,8 @@
 			<optimize>true</optimize>
 			<showDeprecation>true</showDeprecation>
 			<encoding>UTF-8</encoding>
-			<source>1.8</source>
-			<target>1.8</target>
+			<source>17</source>
+			<target>17</target>
 		</configuration>
 	</plugin>	     
       <plugin>
@@ -185,7 +164,7 @@
 				<docfilessubdirs>true</docfilessubdirs>
 				<detectJavaApiLink>true</detectJavaApiLink>
 				<detectLinks>true</detectLinks>
-				<source>1.8</source>
+				<source>17</source>
 				<show>public</show> 
 	            <excludePackageNames>
 	               org.nhindirect.common.mail.dsn.impl:org.nhindirect.common.tx.impl:org.nhindirect.common.tx.provider:org.nhindirect.common.tx.module:org.nhindirect.common.tooling:org.nhindirect.common.crypto.tools
@@ -214,7 +193,6 @@
                      </goals>
               </execution>
             </executions>
-            <version>3.0.1</version>
         </plugin>	    
          -->     
         <plugin>
@@ -244,7 +222,7 @@
 			  <docfilessubdirs>true</docfilessubdirs>
 			  <detectJavaApiLink>true</detectJavaApiLink>
 			  <detectLinks>true</detectLinks>
-		      <source>1.8</source>
+		      <source>17</source>
 			  <show>public</show>  
 	          <excludePackageNames>
 	              org.nhindirect.common.mail.dsn.impl:org.nhindirect.common.tx.impl:org.nhindirect.common.tx.provider:org.nhindirect.common.tx.module:org.nhindirect.common.tooling:org.nhindirect.common.crypto.tools
@@ -255,7 +233,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-pmd-plugin</artifactId>
        			<configuration>
-          			<targetJdk>1.8</targetJdk>
+          			<targetJdk>17</targetJdk>
         		</configuration>					
 			</plugin>
 		    <plugin>
@@ -265,7 +243,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
-				<version>3.1.1</version>
 			</plugin>
 	        <plugin>
 	            <groupId>org.codehaus.mojo</groupId> 
