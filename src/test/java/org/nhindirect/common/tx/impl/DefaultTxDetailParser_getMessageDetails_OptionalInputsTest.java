@@ -10,8 +10,8 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.mail.internet.InternetHeaders;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.internet.InternetHeaders;
+import jakarta.mail.internet.MimeMessage;
 
 import org.apache.commons.io.IOUtils;
 import org.nhindirect.common.mail.MailStandard;

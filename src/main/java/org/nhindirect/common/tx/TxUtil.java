@@ -24,10 +24,10 @@ package org.nhindirect.common.tx;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.ContentType;
-import javax.mail.internet.MimeMessage;
-import javax.mail.internet.ParseException;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.ContentType;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.internet.ParseException;
 
 import org.nhindirect.common.mail.MDNStandard;
 import org.nhindirect.common.mail.SMIMEStandard;
