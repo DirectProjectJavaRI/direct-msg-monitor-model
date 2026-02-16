@@ -75,7 +75,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		catch (MessagingException e)
 		{			
 
-			log.warn("Failed to translate headers to MimeMessage.", e);
+			log.warn("Failed to translate headers to MimeMessage: {}", e.getMessage());
 
 		}
 		///CLOVER:ON
@@ -101,7 +101,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		catch (MessagingException e)
 		{			
 
-			log.warn("Failed to translate input stream into MimeMessage.", e);
+			log.warn("Failed to translate input stream into MimeMessage: {}", e.getMessage());
 
 		}
 		///CLOVER:ON
@@ -155,7 +155,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			log.warn("Failed to retrieve message sender list.", e);
+			log.warn("Failed to retrieve message sender list: {}", e.getMessage());
 		}
 		/// CLOVER:ON
 		
@@ -170,7 +170,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			log.warn("Failed to retrieve message sender", e);
+			log.warn("Failed to retrieve message sender: {}", e.getMessage());
 		}		
 		/// CLOVER:ON
 		
@@ -201,7 +201,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		/// CLOVER:OFF
 		catch (MessagingException e)
 		{
-			log.warn("Failed to retrieve message recipient list.", e);
+			log.warn("Failed to retrieve message recipient list: {}", e.getMessage());
 		}
 		/// CLOVER:ON
 		
@@ -250,7 +250,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 					// CLOVER:OFF
 					catch (Exception e)
 					{
-						log.warn("Failed to retrieve MDN headers from message.  Message may not be an MDN message.", e);
+						log.warn("Failed to retrieve MDN headers from message.  Message may not be an MDN message: {}", e.getMessage());
 					}
 					// CLOVER:ON
 					break;
@@ -297,7 +297,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 					///CLOVER:OFF
 					catch (Exception e) 
 					{
-						log.warn("Could not get a requested field from the DSN message", e);
+						log.warn("Could not get a requested field from the DSN message: {}", e.getMessage());
 					}
 					///CLOVER:ON
 					break;
@@ -334,7 +334,7 @@ public class DefaultTxDetailParser implements TxDetailParser
 		{
 			// According to most SE runtimes, getAllHeaderLines will never thrown a MessagingException
 
-			log.warn("Failed to builder message summary.", e);
+			log.warn("Failed to builder message summary: {}", e.getMessage());
 
 		}
 		///CLOVER:ON
