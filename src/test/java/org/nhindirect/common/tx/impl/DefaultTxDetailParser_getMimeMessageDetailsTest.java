@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.internet.MimeMessage;
 
 import org.nhindirect.common.mail.MDNStandard;
 import org.nhindirect.common.mail.MailStandard;

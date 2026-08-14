@@ -24,8 +24,8 @@ package org.nhindirect.common.tx;
 import java.io.InputStream;
 import java.util.Map;
 
-import javax.mail.internet.InternetHeaders;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.internet.InternetHeaders;
+import jakarta.mail.internet.MimeMessage;
 
 import org.nhindirect.common.tx.model.TxDetail;
 
